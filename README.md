@@ -1,2 +1,3 @@
-# materials-ai-kit
-AI-powered toolkit for materials science research
+# Test Update
+
+This is a test update.
