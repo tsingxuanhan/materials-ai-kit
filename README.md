@@ -9,6 +9,26 @@
 
 Materials-AI-Kit is a comprehensive toolkit designed for materials scientists and researchers, integrating artificial intelligence capabilities into traditional materials research workflows. The toolkit focuses on **low-carbon building materials** and **cement-based systems**.
 
+
+
+## 🎮 Live Demo
+
+Try the interactive AI Workstation demo with Liquid Glass design:
+
+👉 **[Open Demo](demo/index.html)** (Download and open in browser)
+
+The demo showcases:
+- 📊 Dashboard with 4 Agent status & API resource allocation
+- 🤖 Agent orchestration (Miner/Assayer/Foundry/Artisan)
+- 🔗 Workflow pipeline with DAG visualization
+- 📚 Knowledge base browser with 9 domain files
+- 🧠 Model training playground (CNN/GNN/LSTM)
+- 🎯 Mix design prediction for cementitious materials
+- 🔌 API proxy architecture visualization
+- 🔍 Trace & token usage monitoring
+
+> All interactions use simulated data. Connect to real backend APIs for full functionality.
+
 ## Features
 
 ### 🧪 Data Processing Pipeline
