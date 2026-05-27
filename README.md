@@ -4,49 +4,48 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.9+](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://www.python.org/)
+[![arXiv](https://img.shields.io/badge/arXiv-materials.XXXXX-orange.svg)](https://arxiv.org)
 
 ## Overview
 
-Materials-AI-Kit is a comprehensive toolkit designed for materials scientists and researchers, integrating artificial intelligence capabilities into traditional materials research workflows. The toolkit focuses on **low-carbon building materials** and **cement-based systems**.
-
-
+Materials-AI-Kit is a comprehensive AI toolkit designed for materials scientists and researchers, focusing on **low-carbon building materials** and **cement-based systems**. It integrates machine learning capabilities into traditional materials research workflows.
 
 ## 🎮 Live Demo
 
 Try the interactive AI Workstation demo with Liquid Glass design:
 
-👉 **[Open Demo](demo/index.html)** (Download and open in browser)
+**[Open Demo](demo/index.html)** (Download and open in browser)
 
-The demo showcases:
-- 📊 Dashboard with 4 Agent status & API resource allocation
-- 🤖 Agent orchestration (Miner/Assayer/Foundry/Artisan)
-- 🔗 Workflow pipeline with DAG visualization
-- 📚 Knowledge base browser with 9 domain files
-- 🧠 Model training playground (CNN/GNN/LSTM)
-- 🎯 Mix design prediction for cementitious materials
-- 🔌 API proxy architecture visualization
-- 🔍 Trace & token usage monitoring
+Features:
+- Dashboard with 4 Agent status & API resource allocation
+- Agent orchestration (Miner/Assayer/Foundry/Artisan)
+- Workflow pipeline with DAG visualization
+- Knowledge base browser with domain files
+- Model training playground (CNN/GNN/LSTM)
+- Mix design prediction for cementitious materials
 
 > All interactions use simulated data. Connect to real backend APIs for full functionality.
 
 ## Features
 
-### 🧪 Data Processing Pipeline
-- Automated data cleaning and normalization for materials datasets
-- Feature engineering for material properties prediction
+### Data Processing Pipeline
+- Automated data cleaning and normalization
+- Feature engineering for material properties
 - Batch processing with progress tracking
 
-### 📊 Knowledge Base Management
+### AI-Enabled Tools
+- **Literature Search**: Semantic search and summarization
+- **Code Generation**: Scripts for common materials science tasks
+- **Concept Explanation**: Domain-specific tutoring
+- **Property Prediction**: CNN-based strength prediction
+- **Mix Optimization**: Inverse design for target properties
+
+### Knowledge Base
 - Paper metadata extraction and indexing
 - Citation network analysis
-- Domain-specific knowledge organization
+- Domain knowledge organization
 
-### 🤖 AI-Enhanced Tools
-- Literature search and summarization
-- Code generation for common materials science tasks
-- Concept explanation and tutoring
-
-### 🔬 Integration with Zotero
+### Zotero Integration
 - One-click import from Zotero library
 - Metadata synchronization
 - Tag-based organization
@@ -64,12 +63,16 @@ graph TB
         MP --> LS[Literature Search]
         MP --> CG[Code Generator]
         MP --> CT[Concept Tutor]
+        MP --> PP[Property Predictor]
+        MP --> MO[Mix Optimizer]
     end
     
     subgraph "Output Layer"
         LS --> RP[Reports]
         CG --> CODE[Code Snippets]
         CT --> ANS[Answers]
+        PP --> PRED[Predictions]
+        MO --> DES[Designs]
     end
 ```
 
@@ -85,58 +88,60 @@ pip install -r requirements.txt
 
 ### Basic Usage
 
+#### Property Prediction
+
 ```python
-from mat_pipeline import MaterialsPipeline
+from models.property_predictor import PropertyPredictor
+import numpy as np
 
-# Initialize pipeline
-pipeline = MaterialsPipeline()
+# Load or train model
+predictor = PropertyPredictor()
+# predictor.fit(X_train, y_train)  # Train on your data
 
-# Process materials data
-result = pipeline.process(
-    data_path="your_data.csv",
-    features=["chemical_composition", "curing_time", "temperature"]
-)
+# Predict strength
+test_mix = {
+    'cement': 350, 'slag': 50, 'gypsum': 10,
+    'water': 175, 'fine_aggregate': 750, 'coarse_aggregate': 1000
+}
 
-# Generate predictions
-predictions = pipeline.predict(result)
+result = predictor.predict_with_interval(test_mix)
+print(f"Predicted: {result['mean']:.1f} MPa (95% CI: {result['lower']:.1f}-{result['upper']:.1f})")
 ```
 
-### Knowledge Base Search
+#### Mix Optimization
 
 ```python
-from kb.kb_update import KnowledgeBase
+from models.composition_optimizer import CompositionOptimizer
 
-kb = KnowledgeBase()
-results = kb.search("nano SiO2 supersulfated cement")
-for paper in results:
-    print(f"{paper['title']} - {paper['year']}")
+optimizer = CompositionOptimizer()
+optimizer.fit(X_train, strength_curves)
+
+# Find mix for target strength
+result = optimizer.optimize(target_strength=40.0, target_age=28)
+print(f"Optimized: Cement={result['composition']['cement']:.0f} kg/m³")
 ```
 
 ## Project Structure
 
 ```
 materials-ai-kit/
-├── ai/                      # AI-enhanced tools
-│   ├── gen_doc.py          # Documentation generation
-│   └── review_code.py      # Code review assistant
+├── ai/                      # AI-enabled tools
 ├── data/                    # Data processing
-│   ├── mat_features.py     # Feature engineering
-│   └── mat_pipeline.py     # Processing pipeline
 ├── kb/                      # Knowledge base
-│   ├── kb_update.py        # KB management
-│   └── kb_validate.py      # Validation tools
+├── models/                  # ML models (NEW)
+│   ├── __init__.py
+│   ├── composition_optimizer.py  # Inverse design
+│   └── property_predictor.py     # CNN prediction
 ├── system/                  # System utilities
-│   ├── gpu_monitor.py      # GPU monitoring
-│   └── health_check.py     # Health checks
 ├── zotero/                  # Zotero integration
-│   ├── paper_to_kb.py      # Paper import
-│   └── zotero_batch.py     # Batch operations
-└── README.md
+├── demo/                    # Interactive demo
+├── README.md
+└── requirements.txt
 ```
 
 ## Research Domains
 
-The toolkit is specifically designed for:
+The toolkit focuses on:
 
 | Domain | Focus Areas |
 |--------|-------------|
@@ -147,7 +152,7 @@ The toolkit is specifically designed for:
 
 ## Contributing
 
-Contributions are welcome! Please read our contribution guidelines before submitting PRs.
+Contributions are welcome! Please read our contributing guidelines before submitting PRs.
 
 ## License
 
