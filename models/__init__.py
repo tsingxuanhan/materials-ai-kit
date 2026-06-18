@@ -1,39 +1,16 @@
 # -*- coding: utf-8 -*-
 """
-Materials-AI-Kit Models Module
-AI-Powered Materials Science ML Models
+Materials-AI-Kit Models
+=======================
+AI-Powered Materials Science Prediction & Optimization
 
-Provides:
-- PropertyPredictor: CNN-based strength prediction
-- CompositionOptimizer: Inverse design for mix optimization
-- VectorMemory: NGram TF-IDF semantic search (v3.1.1)
+Modules:
+- PropertyPredictor: CNN-based material strength prediction
+- CompositionOptimizer: Inverse design for mix proportion optimization
 """
 
-# Property Prediction
-from .property_predictor import PropertyPredictor, load_pretrained_model
+from models.property_predictor import PropertyPredictor
+from models.composition_optimizer import CompositionOptimizer
 
-# Composition Optimization
-from .composition_optimizer import CompositionOptimizer
-
-# Vector Memory (v3.1.1)
-from .vector_memory import (
-    NGramTFIDFProvider,
-    PersistentVectorStore,
-    MemoryEntry,
-    MemoryTier,
-    SearchResult
-)
-
-__all__ = [
-    # Property Prediction
-    'PropertyPredictor',
-    'load_pretrained_model',
-    # Composition Optimization
-    'CompositionOptimizer',
-    # Vector Memory
-    'NGramTFIDFProvider',
-    'PersistentVectorStore',
-    'MemoryEntry',
-    'MemoryTier',
-    'SearchResult'
-]
+__all__ = ['PropertyPredictor', 'CompositionOptimizer']
+__version__ = '4.1.0'
