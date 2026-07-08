@@ -12,7 +12,7 @@
 
 Materials-AI-Kit 是面向材料科学研究者的 AI 工具包，聚焦**低碳建材**与**水泥基体系**。
 
-整合机器学习预测、配合比优化、文献管理和实用脚本，开箱即用。
+整合机器学习预测、配合比优化、文献管理和实用脚本，开箱即用。配合 [NexusFlow](https://github.com/tsingxuanhan/NexusFlow) 多智能体框架使用可实现自动化科研工作流。
 
 ---
 
@@ -87,10 +87,25 @@ python scripts/zotero/zotero_batch.py --collection "cement"
 
 | 项目 | 说明 |
 |------|------|
-| [agent4science](https://github.com/tsingxuanhan/agent4science) | 多Agent科研框架（核心） |
-| [xuanshu-knowledge-base](https://github.com/tsingxuanhan/xuanshu-knowledge-base) | 知识库 v2（524篇论文） |
+| [NexusFlow](https://github.com/tsingxuanhan/NexusFlow) | 多智能体协作框架（CDoL 认知分工） |
+| [agent4science](https://github.com/tsingxuanhan/agent4science) | 学术工具集 & 知识库入口 |
+| [xuanshu-knowledge-base](https://github.com/tsingxuanhan/xuanshu-knowledge-base) | 知识库 v2（524篇论文 / 30分类） |
 | [qiu](https://github.com/tsingxuanhan/qiu) | 秋 · 项目指南文档 |
-| [xuanshu-ui-gallery](https://github.com/tsingxuanhan/xuanshu-ui-gallery) | UI 风格库 |
+| [xuanshu-ui-gallery](https://github.com/tsingxuanhan/xuanshu-ui-gallery) | UI 风格库（6种CSS主题） |
+
+---
+
+## 🌐 生态导航
+
+```
+🏛️ XuanHub 开源生态
+├── 🔬 NexusFlow                 ← 核心 AGI 框架
+├── 📚 xuanshu-knowledge-base    ← 知识库 (524篇 / 30分类)
+├── 🧪 materials-ai-kit          ← 材料AI工具包（本仓库）
+├── 🧰 agent4science             ← 学术工具集
+├── 🎨 xuanshu-ui-gallery        ← UI风格库
+└── 📖 qiu                       ← 项目指南
+```
 
 ---
 
